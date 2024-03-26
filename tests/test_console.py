@@ -6,6 +6,7 @@ from models.engine.db_storage import DBStorage
 from models.engine.file_storage import FileStorage
 import models
 
+
 class TestHBNBCommand(unittest.TestCase):
 
     def setUp(self):
@@ -26,7 +27,8 @@ class TestHBNBCommand(unittest.TestCase):
             self.console.do_EOF("")
         self.assertEqual(mock_stdout.getvalue(), "\n")
 
-    @unittest.skipIf(isinstance(models.storage, DBStorage), "Skipping test for DBStorage")
+    @unittest.skipIf(isinstance(models.storage, DBStorage),
+                     "Skipping test for DBStorage")
     def test_do_create(self):
         from models.base_model import BaseModel
         import json
@@ -43,8 +45,8 @@ class TestHBNBCommand(unittest.TestCase):
 
         self.assertIn(obj.id, unittest.mock_stdout.getvalue())
 
-
-    @unittest.skipIf(isinstance(models.storage, FileStorage), "Skipping test for FileStorage")
+    @unittest.skipIf(isinstance(models.storage, FileStorage),
+                     "Skipping test for FileStorage")
     def test_do_show(self):
         self.storage.show("BaseModel", self.obj.id)
 
