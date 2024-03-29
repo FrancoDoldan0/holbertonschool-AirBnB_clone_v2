@@ -4,7 +4,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 import os
-storage_type = os.getenv('HBNB_TYPE_STORAGE')No se ha podido resolver la importación "sqlalchemy"
+storage_type = os.getenv('HBNB_TYPE_STORAGE')
 
 
 class User(BaseModel, Base):
